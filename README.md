@@ -2,9 +2,9 @@
 mrxvt is a lightweight, tabbed terminal emulator based on rxvt.
 
 The original authors and maintainers are:
-> Terminator <jimmyzhou@users.sourceforge.net>
-> Gautam Iyer <gi1242@users.sourceforge.net>
-> Jehan <zemarmot@users.sourceforge.net>
+Terminator <jimmyzhou@users.sourceforge.net>
+Gautam Iyer <gi1242@users.sourceforge.net>
+Jehan <zemarmot@users.sourceforge.net>
 
 Due to their lack of time I moved the project to a git repository (as in, here).
 For now let us treat it as an unofficial fork. Below, the original README file.

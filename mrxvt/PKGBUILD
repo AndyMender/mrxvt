@@ -1,0 +1,41 @@
+# Contributor:  Terminator <jimmyzhou@users.sourceforge.net>
+# Contributor:  Gautam Iyer <gi1242@users.sourceforge.net>
+# Contributor:  Jehan <zemarmot@users.sourceforge.net>
+# Arch user:  Andy Mender <andymenderunix@gmail.com>
+
+pkgname=mrxvt
+pkgver=0.5.4
+pkgrel=1
+pkgdesc="A simple and lightweight, tabbed terminal emulator based on rxvt"
+arch=('i686' 'x86_64')
+url="https://github.com/AndyMender/$pkgname"
+license=('GPL')
+#makedepends=('perl')
+#makedepends=('libxft' 'perl' 'startup-notification')
+source=(
+    "$url/raw/master/tarballs/$pkgname-$pkgver.tar.gz"
+    "$url/raw/master/tarballs/$pkgname-$pkgver-001-fix-segfault-when-wd-empty.patch"
+)
+sha256sums=('f403ad5a908fcd38a55ed0a7e1b85584cb77be8781199653a39b8af1a9ad10d7'
+			 '1b4e5c18d5c2ed6c9e1f198a97e058016b8e6589e1690d494c01bc899c010f30')
+prepare(){
+    mv $pkgname-$pkgver-001-fix-segfault-when-wd-empty.patch $pkgname-$pkgver/src
+    cd $pkgname-$pkgver/src
+    patch  -p1 <$pkgname-$pkgver-001-fix-segfault-when-wd-empty.patch
+}
+
+build() {
+  cd $pkgname-$pkgver
+  ./configure \
+    --prefix=/usr \
+    --enable-everything \
+    --disable-debug
+  make PREFIX=/usr sysconfdir=/etc localstatedir=/var
+}
+
+package() {
+    cd $pkgname-$pkgver
+    make PREFIX=/usr sysconfdir=/etc localstatedir=/var DESTDIR="$pkgdir" install
+    pkgdesc="A simple and lightweight, tabbed terminal emulator based on rxvt"
+    #depends=('perl')
+}

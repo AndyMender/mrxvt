@@ -1,18 +1,18 @@
 # Contributor:  Terminator <jimmyzhou@users.sourceforge.net>
 # Contributor:  Gautam Iyer <gi1242@users.sourceforge.net>
 # Contributor:  Jehan <zemarmot@users.sourceforge.net>
-# Arch user:  Andy Mender <andymenderunix@gmail.com>
+# AUR packager:  Andy Mender <andymenderunix@gmail.com>
 
 pkgname=mrxvt-git
 _gitname=mrxvt
-pkgver=0.5.5
-pkgrel=1
+pkgver=0.5.4
+pkgrel=2
 pkgdesc="A simple and lightweight, tabbed terminal emulator based on rxvt"
 arch=('i686' 'x86_64')
-url="https://github.com/Jehan/$_gitname.git"
+url="https://gitlab.com/Jehan_ZeMarmot/mrxvt.git"
 license=('GPL')
 depends=('glibc' 'libx11' 'libxau' 'libxcb' 'libxdmcp')
-makedepends=('git' 'autoconf' 'automake' 'libtool')
+makedepends=('git' 'autoconf' 'automake')
 optdepends=('utempter: recording user sessions in utmp or wtmp files'
 	    'xrender: support for background tinting via X Render'
 	    'libxpm: support for XPM background pixmaps'
